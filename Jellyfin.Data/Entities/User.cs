@@ -509,6 +509,36 @@ namespace Jellyfin.Data.Entities
         }
 
         /// <summary>
+        /// Sets the user to be an administrator.
+        /// </summary>
+        public void SetAdministrator()
+        {
+            Permissions.Add(new Permission(PermissionKind.IsAdministrator, true));
+            Permissions.Add(new Permission(PermissionKind.IsDisabled, false));
+            Permissions.Add(new Permission(PermissionKind.IsHidden, true));
+            Permissions.Add(new Permission(PermissionKind.EnableAllChannels, true));
+            Permissions.Add(new Permission(PermissionKind.EnableAllDevices, true));
+            Permissions.Add(new Permission(PermissionKind.EnableAllFolders, true));
+            Permissions.Add(new Permission(PermissionKind.EnableContentDeletion, false));
+            Permissions.Add(new Permission(PermissionKind.EnableContentDownloading, true));
+            Permissions.Add(new Permission(PermissionKind.EnableMediaConversion, true));
+            Permissions.Add(new Permission(PermissionKind.EnableMediaPlayback, true));
+            Permissions.Add(new Permission(PermissionKind.EnablePlaybackRemuxing, true));
+            Permissions.Add(new Permission(PermissionKind.EnablePublicSharing, true));
+            Permissions.Add(new Permission(PermissionKind.EnableRemoteAccess, true));
+            Permissions.Add(new Permission(PermissionKind.EnableSyncTranscoding, true));
+            Permissions.Add(new Permission(PermissionKind.EnableAudioPlaybackTranscoding, true));
+            Permissions.Add(new Permission(PermissionKind.EnableLiveTvAccess, true));
+            Permissions.Add(new Permission(PermissionKind.EnableLiveTvManagement, true));
+            Permissions.Add(new Permission(PermissionKind.EnableSharedDeviceControl, true));
+            Permissions.Add(new Permission(PermissionKind.EnableVideoPlaybackTranscoding, true));
+            Permissions.Add(new Permission(PermissionKind.ForceRemoteSourceTranscoding, false));
+            Permissions.Add(new Permission(PermissionKind.EnableRemoteControlOfOtherUsers, false));
+            Permissions.Add(new Permission(PermissionKind.EnableCollectionManagement, false));
+            Permissions.Add(new Permission(PermissionKind.EnableSubtitleManagement, false));
+        }
+
+        /// <summary>
         /// Initializes the default preferences. Should only be called on user creation.
         /// </summary>
         public void AddDefaultPreferences()
